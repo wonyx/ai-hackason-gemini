@@ -3,6 +3,8 @@ https://zenn.dev/hackathons/2024-google-cloud-japan-ai-hackathon
 
 AI Agent Hackathon with Google Cloud参加レポジトリ。
 ## setup
+[OAuth準備](#OAuth準備)を参考にしてください。
+### インストール
 ```
 npm install
 ```
@@ -23,8 +25,15 @@ refer: https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-w
 ## server
 `server` ディレクトリにサーバーサイドのコードがあります。
 
-## 注意事項
-- `manifest.json` client_id は自分のものに変更してください。
+### OAuth準備
+- OAuth同画面の設定
+  - 公開ステータスがテストの場合は、テスト用にgmailアカウントをテストユーザーとして追加する必要があります
+    ![](./doc/assets/oauth.png)
+- OAuthクライアントの認証情報を作成する
+  - `manifest.json` client_id は自分のものに変更してください。
   - Google CloudでOAuth2.0のクライアントIDを取得してください。
     - refer: https://developer.chrome.com/docs/extensions/how-to/integrate/oauth?hl=ja
+    ![](./doc/assets/oauth-client.png)
+- Google Tasks APIを有効にする
+   - https://console.cloud.google.com/apis/api/tasks.googleapis.com/
 - .envに記載している`VITE_API_URL`を書き換えてください。
