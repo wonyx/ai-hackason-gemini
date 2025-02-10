@@ -1,5 +1,3 @@
-'use client';
-
 import { useChat } from 'ai/react';
 import { useEffect, useState } from 'react';
 import { addTasks } from '../actions/add-tasks';
@@ -36,9 +34,6 @@ export default function Chat() {
       setActiveTabId(tabs[0].id);
 
       console.log("Current Tab ID is: ", tabs[0].id);
-
-      // this always gets the popup.html not the browser tab url where extension is loaded
-
     });
   }, []);
 
