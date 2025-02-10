@@ -1,0 +1,36 @@
+{
+    "name": "Geminiでタスク追加",
+    "version": "0.1",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "identity",
+        "sidePanel",
+        "scripting",
+        "activeTab"
+    ],
+    "side_panel": {
+        "default_path": "index.html"
+    },
+    "action": {
+        "default_icon": {
+            "16": "images/icon16.png",
+            "32": "images/icon32.png",
+            "48": "images/icon48.png",
+            "128": "images/icon128.png"
+        },
+        "default_title": "Open Chat Interface"
+    },
+    "host_permissions": [
+        "https://*/*",
+        "http://*/*"
+    ],
+    "oauth2": {
+        "client_id": "880873538213-hf49gi653r72t9mj61lbbr9f4iu7suil.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/tasks"
+        ]
+    }
+}
