@@ -22,7 +22,7 @@ app.get('/healthz', c => {
 app.post('/api/chat', async c => {
     const { messages } = await c.req.json();
 
-    console.log('messages', messages);
+    // console.log('messages', messages);
     const result = streamText({
         model,
         messages,
