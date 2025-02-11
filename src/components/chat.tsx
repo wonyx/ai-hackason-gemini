@@ -38,7 +38,7 @@ export default function Chat() {
   }, []);
 
   return (
-    <div className='flex flex-col h-[90vh] justify-end'>
+    <div className='flex flex-col h-screen justify-end'>
       <div className='overflow-scroll'>
         {messages?.map(message => (
           <div key={message.id} className="whitespace-pre-wrap  ">
@@ -97,20 +97,34 @@ export default function Chat() {
                       break;
                     }
                     case 'getHtmlByActiveTab': {
-                      return <div>getHtmlByActiveTab</div>
+                      switch (part.toolInvocation.state) {
+                        case 'call':
+                          return (
+                            <div key={callId} className="text-gray-500">
+                              HTMLを取得中...
+                            </div>
+                          );
+                        case 'result':
+                          return (
+                            <div key={callId} className="text-gray-500">
+                              現在のタブからHTMLを取得しました
+                            </div>
+                          );
+                      }
+                      break;
                     }
                     case 'addTasks': {
                       switch (part.toolInvocation.state) {
                         case 'call':
                           return (
                             <div key={callId} className="text-gray-500">
-                              Adding tasks...
+                              タスクを追加中...
                             </div>
                           );
                         case 'result':
                           return (
                             <div key={callId} className="text-gray-500">
-                              Tasks: 追加しました
+                              タスクを追加しました
                             </div>
                           );
                       }
