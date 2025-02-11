@@ -3,7 +3,17 @@ https://zenn.dev/hackathons/2024-google-cloud-japan-ai-hackathon
 
 AI Agent Hackathon with Google Cloud参加レポジトリ。
 ## setup
-[OAuth準備](#OAuth準備)を参考にしてください。
+OAuthの設定を事前に実施します。[こちら](./doc/setup-oauth.md)を参考にしてください。
+
+### 環境変数
+`.env`のVITE_API_URLにサーバーのURLを設定してください。
+```sh
+# localの場合
+VITE_API_URL=http://localhost:8080/api/chat
+# cloud runの場合
+#VITE_API_URL=https://your-cloudrun.asia-northeast1.run.app/api/chat
+```
+
 ### インストール
 ```
 npm install
@@ -24,16 +34,5 @@ refer: https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-w
 
 ## server
 `server` ディレクトリにサーバーサイドのコードがあります。
+READMEを参考に、ローカルサーバーをたてるか、Cloud Runにデプロイします。
 
-### OAuth準備
-- OAuth同画面の設定
-  - 公開ステータスがテストの場合は、テスト用にgmailアカウントをテストユーザーとして追加する必要があります
-    ![](./doc/assets/oauth.png)
-- OAuthクライアントの認証情報を作成する
-  - `manifest.json` client_id は自分のものに変更してください。
-  - Google CloudでOAuth2.0のクライアントIDを取得してください。
-    - refer: https://developer.chrome.com/docs/extensions/how-to/integrate/oauth?hl=ja
-    ![](./doc/assets/oauth-client.png)
-- Google Tasks APIを有効にする
-   - https://console.cloud.google.com/apis/api/tasks.googleapis.com/
-- .envに記載している`VITE_API_URL`を書き換えてください。
